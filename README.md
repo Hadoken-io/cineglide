@@ -27,7 +27,7 @@ CineSwipe is a sleek, minimalist movie discovery web app. Swipe right to save, l
 
 ## 🚀 Live Demo
 
-👉 **[cineswipe.vercel.app](https://cineswipe.vercel.app)**
+👉 **[cineglide.vercel.app](https://cineglide.vercel.app/)**
 
 ---
 
@@ -44,29 +44,6 @@ CineSwipe is a sleek, minimalist movie discovery web app. Swipe right to save, l
 
 ---
 
-## 📦 Getting Started
-
-### 1. Clone the repo
-```bash
-git clone https://github.com/yourusername/cineswipe.git
-cd cineswipe
-```
-
-### 2. Get a free TMDB API key
-- Go to [themoviedb.org](https://www.themoviedb.org)
-- Sign up free → Settings → API → Request API Key
-- Copy your **API Key (v3 auth)**
-
-### 3. Add your API key
-Open `app.js` and replace line 4:
-```javascript
-const API_KEY = 'YOUR_TMDB_KEY_HERE';
-```
-
-### 4. Run locally
-Open `index.html` with [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) in VS Code — or just double-click the file.
-
----
 
 ## 🎮 How to Use
 
@@ -93,14 +70,7 @@ If no recommendations are found, it automatically falls back to TMDB's "similar 
 
 ---
 
-## 🌐 Deploy Your Own
 
-1. Fork this repo
-2. Add your TMDB API key to `app.js`
-3. Go to [vercel.com](https://vercel.com) → Import your fork → Deploy
-4. Done! Your own CineSwipe is live in 60 seconds 🚀
-
----
 
 ## 📁 Project Structure
 
