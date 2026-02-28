@@ -1,4 +1,4 @@
-# 🎬 CineSwipe
+# 🎬 CineGlide
 
 > Tinder for movies. Swipe your way to your next favourite film.
 
