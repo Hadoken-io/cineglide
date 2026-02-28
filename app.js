@@ -19,7 +19,7 @@ let cookType           = 'movie';
 let selectedCookGenres = [];
 let currentCard        = null;
 let modalCurrent       = null;
-let savedList          = JSON.parse(localStorage.getItem('cineswipe_saved') || '[]');
+let savedList          = JSON.parse(localStorage.getItem('CineGlide_saved') || '[]');
 
 // Picker state
 let pickerSelectedType = 'movie';
@@ -66,7 +66,7 @@ function showGenrePicker() {
   document.body.insertAdjacentHTML('beforeend', `
     <div class="genre-picker-overlay" id="genre-overlay">
       <div class="genre-picker-box">
-        <p class="picker-logo">CineSwipe</p>
+        <p class="picker-logo">CineGlide</p>
         <h1 class="picker-title">What do you<br/>love watching?</h1>
         <p class="picker-sub">Pick your favourite genres — we'll build your personal feed. You can change this anytime.</p>
 
@@ -397,13 +397,13 @@ function saveMovie(item) {
   if (!item) return;
   if (!savedList.find(x => x.id === item.id)) {
     savedList.push(item);
-    localStorage.setItem('cineswipe_saved', JSON.stringify(savedList));
+    localStorage.setItem('CineGlide_saved', JSON.stringify(savedList));
   }
 }
 function removeFromSaved() {
   if (!modalCurrent) return;
   savedList = savedList.filter(x => x.id !== modalCurrent.id);
-  localStorage.setItem('cineswipe_saved', JSON.stringify(savedList));
+  localStorage.setItem('CineGlide_saved', JSON.stringify(savedList));
   closeModal();
   renderSaved();
 }
