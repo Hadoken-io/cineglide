@@ -17,7 +17,13 @@
   --r-pill:     999px;
   --shadow:     0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06);
 }
-
+.seo-text {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
 /* ══════════════════════════════
    RESET & BASE
 ══════════════════════════════ */
@@ -666,4 +672,5 @@ body::after {
 /* ══════════════════════════════
    SCROLLBAR HIDDEN
 ══════════════════════════════ */
+
 ::-webkit-scrollbar { width: 0; }
