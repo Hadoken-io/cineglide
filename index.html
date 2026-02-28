@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>CineSwipe</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="bg-blobs">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<!-- ══════════════ HOME PAGE ══════════════ -->
+<div class="page active" id="page-home">
+  <header class="topbar">
+    <div class="type-toggle">
+      <button class="type-btn active" id="btn-movie" onclick="switchType('movie')">🎬 Movies</button>
+      <button class="type-btn" id="btn-tv" onclick="switchType('tv')">📺 Shows</button>
+    </div>
+  </header>
+
+  <main class="swipe-area">
+    <div class="card-stack" id="card-stack">
+      <div class="stack-ghost ghost-2"></div>
+      <div class="stack-ghost ghost-1"></div>
+
+      <div class="swipe-label lbl-skip" id="lbl-skip">👎 Pass</div>
+      <div class="swipe-label lbl-save" id="lbl-save">❤️ Save</div>
+      <div class="swipe-label lbl-search" id="lbl-search">🔍 Search</div>
+
+      <div class="loading-card" id="loading-card">
+        <div class="spinner"></div>
+        <p class="loading-txt">Fetching films…</p>
+      </div>
+
+      <div class="flip-wrapper" id="flip-card">
+        <!-- FRONT -->
+        <div class="card-face card-front">
+          <img class="card-poster" id="card-poster" src="" alt="Movie Poster"/>
+          <div class="poster-gradient"></div>
+          <span class="flip-hint">Tap to flip ↩</span>
+          <div class="card-front-info">
+            <h2 class="card-title" id="card-title">Loading…</h2>
+            <div class="genre-pills" id="card-genres"></div>
+          </div>
+        </div>
+        <!-- BACK -->
+        <div class="card-face card-back">
+          <h2 class="back-title" id="back-title">—</h2>
+          <p class="back-synopsis" id="back-synopsis">—</p>
+          <div class="ratings-row">
+            <div class="rating-chip">
+              <span class="chip-icon">⭐</span>
+              <div>
+                <div class="chip-val" id="rating-imdb">—</div>
+                <div class="chip-lbl">IMDb</div>
+              </div>
+            </div>
+            <div class="rating-chip">
+              <span class="chip-icon">🔥</span>
+              <div>
+                <div class="chip-val" id="rating-pop">—</div>
+                <div class="chip-lbl">Popularity</div>
+              </div>
+            </div>
+            <div class="rating-chip">
+              <span class="chip-icon">📅</span>
+              <div>
+                <div class="chip-val" id="rating-year">—</div>
+                <div class="chip-lbl">Year</div>
+              </div>
+            </div>
+          </div>
+          <div class="stream-section">
+            <p class="stream-label">WHERE TO WATCH</p>
+            <div class="stream-pills" id="stream-pills">
+              <span class="stream-pill">Checking…</span>
+            </div>
+          </div>
+          <p class="flip-back-hint">Tap to flip back</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button class="act-btn act-skip" id="btn-skip" title="Skip">✕</button>
+      <button class="act-btn act-google" id="btn-google" title="Search Google">🔍</button>
+      <button class="act-btn act-save" id="btn-save" title="Save">❤</button>
+    </div>
+  </main>
+</div>
+
+<!-- ══════════════ COOK PAGE ══════════════ -->
+<div class="page" id="page-cook">
+  <header class="topbar">
+    <div class="type-toggle">
+      <button class="type-btn active" id="cook-btn-movie" onclick="switchCookType('movie')">🎬 Movies</button>
+      <button class="type-btn" id="cook-btn-tv" onclick="switchCookType('tv')">📺 Shows</button>
+    </div>
+  </header>
+  <div class="cook-wrap">
+    <div>
+      <h1 class="cook-title">Cook a Vibe 🍿</h1>
+      <p class="cook-sub">Pick genres for a one-time session. Won't touch your home feed.</p>
+    </div>
+    <div class="section-block">
+      <p class="section-label">CONTENT RATING</p>
+      <div class="age-row">
+        <button class="age-btn active" id="cook-age-all" onclick="setCookAge('all')">👶 All Ages</button>
+        <button class="age-btn" id="cook-age-18" onclick="setCookAge('18+')">🔞 18+ Only</button>
+      </div>
+    </div>
+    <div class="section-block">
+      <p class="section-label">PICK GENRES</p>
+      <div class="genre-grid" id="genre-grid"></div>
+    </div>
+    <button class="go-btn" onclick="startCookSession()">Let's Go →</button>
+    <div id="cook-results" style="display:none">
+      <p class="section-label" style="margin-bottom:10px">YOUR SESSION</p>
+      <div class="cook-list" id="cook-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ SAVED PAGE ══════════════ -->
+<div class="page" id="page-saved">
+  <header class="topbar" style="justify-content:flex-start;padding-left:24px;">
+    <h1 class="page-heading">Saved ❤️</h1>
+  </header>
+  <div class="saved-wrap">
+    <div class="saved-grid" id="saved-grid"></div>
+    <div class="empty-saved" id="empty-saved" style="display:none">
+      <div class="es-icon">🎬</div>
+      <p class="es-msg">Nothing saved yet</p>
+      <p class="es-sub">Swipe right on movies you love</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ BOTTOM NAV ══════════════ -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" id="nav-home" onclick="goPage('home')">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-lbl">Home</span>
+  </button>
+  <button class="nav-btn" id="nav-cook" onclick="goPage('cook')">
+    <span class="nav-icon">🍿</span>
+    <span class="nav-lbl">Cook</span>
+  </button>
+  <button class="nav-btn" id="nav-saved" onclick="goPage('saved')">
+    <span class="nav-icon">❤️</span>
+    <span class="nav-lbl">Saved</span>
+  </button>
+</nav>
+
+<!-- ══════════════ SAVED MODAL ══════════════ -->
+<div class="modal-bg" id="modal-bg" onclick="closeModal()">
+  <div class="modal-card" onclick="event.stopPropagation()">
+    <img class="modal-poster" id="modal-poster" src="" alt=""/>
+    <div class="modal-body">
+      <h2 class="modal-title" id="modal-title">—</h2>
+      <div class="modal-genres" id="modal-genres"></div>
+      <p class="modal-synopsis" id="modal-synopsis">—</p>
+      <div class="modal-actions">
+        <button class="modal-btn modal-remove" onclick="removeFromSaved()">Remove</button>
+        <button class="modal-btn modal-google" onclick="googleCurrentModal()">Google It</button>
+      </div>
+      <!-- ML RECOMMENDATIONS -->
+      <div class="rec-section" id="rec-section" style="display:none">
+        <p class="rec-label">🤖 BECAUSE YOU LIKED THIS</p>
+        <div class="rec-list" id="rec-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
