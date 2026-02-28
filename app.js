@@ -66,7 +66,7 @@ function showGenrePicker() {
   document.body.insertAdjacentHTML('beforeend', `
     <div class="genre-picker-overlay" id="genre-overlay">
       <div class="genre-picker-box">
-        <p class="picker-logo">CineGlide</p>
+        <p class="picker-logo">CineGlide by Aniket Lodh</p>
         <h1 class="picker-title">What do you<br/>love watching?</h1>
         <p class="picker-sub">Pick your favourite genres — we'll build your personal feed. You can change this anytime.</p>
 
@@ -615,4 +615,5 @@ function renderCookResults(items) {
 // ══════════════════════════════════════════════
 // START
 // ══════════════════════════════════════════════
+
 showGenrePicker();
