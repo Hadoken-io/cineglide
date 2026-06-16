@@ -2,7 +2,7 @@
 
 > Tinder for movies. Swipe your way to your next favourite film.
 
-CineSwipe is a sleek, minimalist movie discovery web app. Swipe right to save, left to skip, or up to Google search — just like Tinder but for films and TV shows. Built with a beautiful frosted glass aesthetic inspired by iOS.
+CineGlide is a sleek, minimalist movie discovery web app. Swipe right to save, left to skip, or up to Google search — just like Tinder but for films and TV shows. Built with a beautiful frosted glass aesthetic inspired by iOS.
 
 ![CineSwipe Preview](https://img.shields.io/badge/Status-Live-brightgreen) ![License](https://img.shields.io/badge/License-MIT-blue) ![Made With](https://img.shields.io/badge/Made%20With-HTML%20CSS%20JS-orange)
 
