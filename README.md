@@ -23,7 +23,7 @@ CineGlide is a sleek, minimalist movie discovery web app. Swipe right to save, l
 - 📱 **Mobile + Desktop** — works beautifully on all screen sizes
 - 🍃 **Foggy glass aesthetic** — warm, minimal, iOS-inspired design
 
----
+
 
 ## 🚀 Live Demo
 
